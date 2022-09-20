@@ -1,0 +1,55 @@
+﻿@page
+@model Wba.StovePalace.Pages.Stoves.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Stove</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Stove.Id" />
+            <div class="form-group">
+                <label asp-for="Stove.BrandId" class="control-label"></label>
+                <select asp-for="Stove.BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                <span asp-validation-for="Stove.BrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stove.FuelId" class="control-label"></label>
+                <select asp-for="Stove.FuelId" class="form-control" asp-items="ViewBag.FuelId"></select>
+                <span asp-validation-for="Stove.FuelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stove.ModelName" class="control-label"></label>
+                <input asp-for="Stove.ModelName" class="form-control" />
+                <span asp-validation-for="Stove.ModelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stove.Performance" class="control-label"></label>
+                <input asp-for="Stove.Performance" class="form-control" />
+                <span asp-validation-for="Stove.Performance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stove.SalesPrice" class="control-label"></label>
+                <input asp-for="Stove.SalesPrice" class="form-control" />
+                <span asp-validation-for="Stove.SalesPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
